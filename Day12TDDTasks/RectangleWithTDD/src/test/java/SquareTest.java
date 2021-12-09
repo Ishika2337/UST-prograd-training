@@ -11,35 +11,32 @@ class SquareTest {
 
         @Test
         public void areaOfSquareWithSideTwoIsFour() {
-            square = new Square(2, 2);
-            double answer = square.areaOfRectangle();
+            square = new Square(2);
+            double answer = square.area();
             double expected = 4;
-            Assertions.assertEquals(expected, answer);
+            assertEquals(expected, answer);
         }
 
         @Test
         public void areaOfSquareWithSideFiveIsTwentyFive() {
-            square = new Square(5,5);
-            double answer = square.areaOfRectangle();
+            square = new Square(5);
+            double answer = square.area();
             double expected = 25;
-            Assertions.assertEquals(expected, answer);
+            assertEquals(expected, answer);
         }
 
+
         @Test
-        public void areaOfSquareThrowExceptionIfSide1IsThreeAndSide2IsTwo() {
-            assertThrows(IllegalArgumentException.class, () -> new Square(3, 2));
+        public void areaOfSquareThrowExceptionIfSideIsNegativeFour() {
+            assertThrows(IllegalArgumentException.class, () -> new Square(-4));
         }
         @Test
-        public void areaOfSquareThrowExceptionIfSide1IsNegativeFourAndSide2IsSix() {
-            assertThrows(IllegalArgumentException.class, () -> new Square(-4, 6));
-        }
-        @Test
-        public void areaOfSquareThrowExceptionIfSide1IsNegativeSixAndSide2IsNegativeTwo() {
-            assertThrows(IllegalArgumentException.class, () -> new Square(-6, -2));
+        public void areaOfSquareThrowExceptionIfSideIsNegativeSix() {
+            assertThrows(IllegalArgumentException.class, () -> new Square(-6));
         }
         @Test
         public void areaOfSquareThrowExceptionIfSideIsZero() {
-            assertThrows(IllegalArgumentException.class, () -> new Square(0, 0));
+            assertThrows(IllegalArgumentException.class, () -> new Square(0));
         }
 
     }
@@ -51,35 +48,31 @@ class SquareTest {
 
         @Test
         public void perimeterOfSquareWithSideThreeIsTwelve() {
-            square = new Square(3, 3);
-            double answer = square.perimeterOfRectangle();
+            square = new Square(3);
+            double answer = square.perimeter();
             double expected = 12;
-            Assertions.assertEquals(expected, answer);
+            assertEquals(expected, answer);
         }
 
         @Test
         public void perimeterOfSquareWithSideSixIsTwentyFour() {
-            square = new Square(6,6);
-            double answer = square.perimeterOfRectangle();
+            square = new Square(6);
+            double answer = square.perimeter();
             double expected = 24;
-            Assertions.assertEquals(expected, answer);
+            assertEquals(expected, answer);
         }
 
         @Test
-        public void perimeterOfSquareThrowExceptionIfSide1IsSevenAndSide2IsTwo() {
-            assertThrows(IllegalArgumentException.class, () -> new Square(7, 2));
+        public void perimeterOfSquareThrowExceptionIfSideIsNegativeTwo() {
+            assertThrows(IllegalArgumentException.class, () -> new Square(-2));
         }
         @Test
-        public void perimeterOfSquareThrowExceptionIfSide1IsNegativeTwoAndSide2IsSix() {
-            assertThrows(IllegalArgumentException.class, () -> new Square(-2, 6));
-        }
-        @Test
-        public void perimeterOfSquareThrowExceptionIfSide1IsNegativeSixAndSide2IsNegativeEight() {
-            assertThrows(IllegalArgumentException.class, () -> new Square(-6, -8));
+        public void perimeterOfSquareThrowExceptionIfSideIsNegativeEight() {
+            assertThrows(IllegalArgumentException.class, () -> new Square(-8));
         }
         @Test
         public void perimeterOfSquareThrowExceptionIfSideIsZero() {
-            assertThrows(IllegalArgumentException.class, () -> new Square(0, 0));
+            assertThrows(IllegalArgumentException.class, () -> new Square(0));
         }
 
     }

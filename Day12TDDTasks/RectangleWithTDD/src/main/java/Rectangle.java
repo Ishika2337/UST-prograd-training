@@ -19,11 +19,11 @@ public class Rectangle {
 
     }
 
-    public double areaOfRectangle() {
+    public double area() {
         return length * width;
     }
 
-    public double perimeterOfRectangle() {
+    public double perimeter() {
         return 2 * (length + width);
     }
 }

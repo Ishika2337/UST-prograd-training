@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 public class RectangleTest {
-    private Rectangle rectangle;
 
     @Nested
     public class AreaOfRectangle{
@@ -12,14 +11,14 @@ public class RectangleTest {
         @Test
         public void areaOfRectangleWithLengthTwoAndWidthThreeIsSix(){
             rectangle = new Rectangle(2,3);
-            double answer = rectangle.areaOfRectangle();
+            double answer = rectangle.area();
             double expected = 6;
             Assertions.assertEquals(expected, answer);
         }
         @Test
         public void areaOfRectangleWithLengthTenAndWidthEightIsEighty(){
             rectangle = new Rectangle(10, 8);
-            double answer = rectangle.areaOfRectangle();
+            double answer = rectangle.area();
             double expected = 80;
             Assertions.assertEquals(expected, answer);
         }
@@ -27,14 +26,14 @@ public class RectangleTest {
         @Test
         public void areaOfRectangleWithLengthThreeAndWidthSevenIsTwentyOne(){
             rectangle = new Rectangle(3,7);
-            double answer = rectangle.areaOfRectangle();
+            double answer = rectangle.area();
             double expected = 21;
             Assertions.assertEquals(expected, answer);
         }
         @Test
         public void areaOfRectangleWithLengthThreePointFiveAndWidthTwoPointSixIsNinePointOne(){
             rectangle = new Rectangle(3.5,2.6);
-            double answer = rectangle.areaOfRectangle();
+            double answer = rectangle.area();
             double expected = 9.1;
             Assertions.assertEquals(expected, answer);
         }
@@ -55,11 +54,6 @@ public class RectangleTest {
             Assertions.assertThrows(IllegalArgumentException.class, () -> new Rectangle(9,-10));
 
         }
-        @Test
-        public void areaThrowExceptionWhenLengthTenAndWidthTen(){
-            Assertions.assertThrows(IllegalArgumentException.class, () -> new Rectangle(10,10));
-        }
-
     }
 
     @Nested
@@ -69,28 +63,28 @@ public class RectangleTest {
         @Test
         public void perimeterOfRectangleWithLengthFiveAndWidthTwoIsFourteen(){
             rectangle = new Rectangle(5,2);
-            double answer = rectangle.perimeterOfRectangle();
+            double answer = rectangle.perimeter();
             double expected = 14;
             Assertions.assertEquals(expected, answer);
         }
         @Test
         public void perimeterOfRectangleWithLengthSixAndWidthThreeIsEighteen(){
             rectangle = new Rectangle(6,3);
-            double answer = rectangle.perimeterOfRectangle();
+            double answer = rectangle.perimeter();
             double expected = 18;
             Assertions.assertEquals(expected, answer);
         }
         @Test
         public void perimeterOfRectangleWithLengthNinePointOneAndWidthSevenIsThirtyTwoPointTwo(){
             rectangle = new Rectangle(9.1,7);
-            double answer = rectangle.perimeterOfRectangle();
+            double answer = rectangle.perimeter();
             double expected = 32.2;
             Assertions.assertEquals(expected, answer);
         }
         @Test
         public void perimeterOfRectangleWithLengthTwoPointFiveAndWidthFivePointFiveIsSixteen(){
             rectangle = new Rectangle(2.5,5.5);
-            double answer = rectangle.perimeterOfRectangle();
+            double answer = rectangle.perimeter();
             double expected = 16;
             Assertions.assertEquals(expected, answer);
         }
@@ -110,10 +104,6 @@ public class RectangleTest {
         @Test
         public void perimeterThrowExceptionIfLengthIsNegativeNineAndWidthIsTen(){
             Assertions.assertThrows(IllegalArgumentException.class, () -> new Rectangle(-9,10));
-        }
-        @Test
-        public void perimeterThrowExceptionWhenLengthSixAndWidthSix(){
-            Assertions.assertThrows(IllegalArgumentException.class, () -> new Rectangle(6,6));
         }
     }
 }
