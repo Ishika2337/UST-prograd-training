@@ -41,8 +41,17 @@ public class CoinTossed {
         return probability;
     }
 
-    public double notOccurringAnEvent() {
-        return 1 - occurringTwoEventsTogether();
+    public double notOccurringAnEvent(String event) {
+        if (event == "HH" || event == "TT" || event == "HT" || event == "TH" ) {
+            for (int i = 0; i < coinTossedTwice.length; i++) {
+                if (coinTossedTwice[i].contains(event))
+                    count++;
+            }
+        }
+        else{
+            throw new IllegalArgumentException("Not a valid Event");
+        }
+        return count / coinTossedTwice.length;
     }
 
     public double probabilityOfEitherTwoEventsOccurring() {
