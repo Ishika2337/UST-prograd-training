@@ -1,19 +1,22 @@
-public class LengthConvertor {
-    public double meterToCentimeter(double lengthInMeter){
-        return lengthInMeter*100;
+public class LengthConvertor extends MagnitudeConvertor {
+    public double meterToCentimeter(double lengthInMeter) {
+        return baseToCenti(lengthInMeter);
     }
-    public double CentimeterToKilometer(double lengthInCentimeter ){
-        return lengthInCentimeter/100000;
+
+    public double CentimeterToKilometer(double lengthInCentimeter) {
+        return centiToKilo(lengthInCentimeter);
     }
-    public double CentimeterToCentimeter(double lengthInCentimeter){
-        return lengthInCentimeter;
+
+    public double CentimeterToCentimeter(double lengthInCentimeter) {
+        return baseToBase(lengthInCentimeter);
     }
-    public double centimeterToMeter(double lengthInCentimeter){
-        return lengthInCentimeter/100;
+
+    public double centimeterToMeter(double lengthInCentimeter) {
+        return centiToBase(lengthInCentimeter);
     }
 
     public double kilometerToCentimeter(double lengthInKilometer) {
-        return lengthInKilometer*100000;
+        return kiloToCenti(lengthInKilometer);
     }
 }
 

@@ -1,13 +1,13 @@
-public class WeightConvertor {
+public class WeightConvertor extends MagnitudeConvertor {
     public double gramToGram(double weightInGram) {
-        return weightInGram;
+        return baseToBase(weightInGram);
     }
 
     public double kilogramToGram(double weightInKilogram) {
-        return weightInKilogram*1000;
+        return kiloToBase(weightInKilogram);
     }
 
     public double gramToKilogram(double weightInGram) {
-        return weightInGram/1000;
+        return baseToKilo(weightInGram);
     }
 }
