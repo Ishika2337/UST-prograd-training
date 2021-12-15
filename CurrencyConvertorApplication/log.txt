@@ -1,0 +1,8 @@
+Dec 15, 2021 1:26:58 PM App main
+INFO: Program Started...
+Dec 15, 2021 1:30:05 PM App main
+INFO: User selected INR to USD
+Dec 15, 2021 1:30:12 PM App main
+INFO: User Entered amount: 100.0
+Dec 15, 2021 1:30:18 PM App main
+INFO: Program Stopped..
