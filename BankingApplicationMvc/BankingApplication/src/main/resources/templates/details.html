@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div class="form">
+    <h1>Details of <span th:text="${name}" /></h1>
+    <p>Name: <span th:text="${name}"/></p>
+    <p>Mobile Number: <span th:text="${mobileNumber}"/></p>
+    <p>Address: <span th:text="${address}"/></p>
+    <p>Account Number: <span th:text="${accountNumber}" /></p>
+    <p>Balance: <span th:text="${balance}"/></p>
+</div>
+</body>
+</html>
