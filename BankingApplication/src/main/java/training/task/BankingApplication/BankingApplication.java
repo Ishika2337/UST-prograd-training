@@ -21,29 +21,29 @@ public class BankingApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(BankingApplication.class, args);
-        Customer customer1 = context.getBean(Customer.class);
-        Customer customer2 = context.getBean(Customer.class);
-        //Account account = context.getBean(Account.class);
-        FundTransfer fundTransfer = context.getBean(FundTransfer.class);
-
-
-        customer1.setCustomerId(100);
-        customer1.setCustomerName("Ishika");
-        customer1.setAddress("Ganesh nagar");
-        customer1.setMobileNumber(9887745939l);
-        customer1.setAccountNumber(1234);
-        customer1.setAccountBalance(2000);
-        customer1.showCustomerDetails();
-        fundTransfer.transfer(100,customer1,"withdraw");
-        customer2.setCustomerId(101);
-        customer2.setCustomerName("Garima");
-        customer2.setAddress("Ramganj");
-        customer2.setMobileNumber(9530290770l);
-        customer2.setAccountNumber(4567);
-        customer2.setAccountBalance(3000);
-        customer2.showCustomerDetails();
-
-        fundTransfer.transfer(100,customer2,"deposit");
+//        Customer customer1 = context.getBean(Customer.class);
+//        Customer customer2 = context.getBean(Customer.class);
+//        //Account account = context.getBean(Account.class);
+//        FundTransfer fundTransfer = context.getBean(FundTransfer.class);
+//
+//
+//        customer1.setCustomerId(100);
+//        customer1.setCustomerName("Ishika");
+//        customer1.setAddress("Ganesh nagar");
+//        customer1.setMobileNumber("9887745939");
+//        customer1.setAccountNumber(100);
+//        customer1.setAccountBalance(2000);
+//        customer1.showCustomerDetails();
+//
+//        customer2.setCustomerId(101);
+//        customer2.setCustomerName("Garima");
+//        customer2.setAddress("Ramganj");
+//        customer2.setMobileNumber("9530290770");
+//        customer2.setAccountNumber(101);
+//        customer2.setAccountBalance(3000);
+//        customer2.showCustomerDetails();
+//
+//        fundTransfer.transfer(1000,100,101);
     }
 
 }
