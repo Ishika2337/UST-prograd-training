@@ -48,4 +48,16 @@ public class Account {
     public void setCustomer(RegisteredCustomer customer) {
         this.customer = customer;
     }
+
+    public Double deposit(Double amount){
+        return  this.balance += amount;
+    }
+    public Double withdraw(Double amount){
+        if (this.balance<amount){
+            return balance;
+        }
+        else {
+            return this.balance -= amount;
+        }
+    }
 }

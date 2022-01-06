@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ABC Bank</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/login.css">
+
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -17,13 +17,12 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
-            <li class="active"><a href="#">Fund Transfer</a></li>
-            <li><a th:href="@{/withdraw/{id} (id=${accountNumber})}">Withdraw</a></li>
+            <li><a th:href="@{/fundTransfer/{id} (id=${accountNumber})}">Fund Transfer</a></li>
+            <li class="active"><a href="#">Withdraw</a></li>
             <li><a th:href="@{/deposit/{id} (id=${accountNumber})}">Deposit</a></li>
         </ul>
     </div>
 </nav>
-
 <div class="container">
     <div class="text-center mb-2">
         <h1>Welcome to ABC Bank</h1>
@@ -31,23 +30,17 @@
     <div class="text-center">
         <span th:text="${message}"/>
     </div>
-    <form th:action="@{/fundTransfer/{id} (id=${accountNumber})}" method="post">
-        <div class="form-group">
-            <label for="toAccount">To Account Number</label>
-            <input type="text" class="form-control" id="toAccount" name="toAccount">
-        </div>
+    <form th:action="@{/withdraw/{id} (id=${accountNumber})}" method="post">
 
-        <div class="form-group">
+        <div class="form-group mb-2">
             <label for="amount">Amount</label>
             <input type="text" class="form-control" id="amount" name="amount">
         </div>
-
         <div class="form-group center-text">
-            <button class="btn btn-success" type="submit">Transfer</button>
+            <button class="btn btn-success" type="submit">Withdraw</button>
         </div>
     </form>
 </div>
-
 
 </body>
 </html>

@@ -54,6 +54,7 @@ public class CustomerController {
         String address = request.getParameter("customerAddress");
         String password = request.getParameter("Password");
         // System.out.println(address);
+        //Assign account to the Customer
         Account account = accountService.saveAccount(new Account());
         RegisteredCustomer customer = new RegisteredCustomer(userName, name, phoneNumber, address, password);
         customer.setAccount(account);
@@ -63,7 +64,7 @@ public class CustomerController {
 
     //Login
     //TODO: use session or cookies
-    //TODO: create new get route for details
+    // TODO: create new get route for details
     @PostMapping("/login")
     public String login(HttpServletRequest request, Model model) {
         String userName = request.getParameter("userName");
@@ -73,14 +74,14 @@ public class CustomerController {
         //Account account;
         if (customerService.existsById(userName)) {
             customer = customerService.findById(userName);
-           // account = accountService.getById(accountNumber);
+            // account = accountService.getById(accountNumber);
             if (password.equals(customer.getPassword())) {
                 model.addAttribute("message", "Login Successfully");
                 model.addAttribute("name", customer.getCustomerName());
                 model.addAttribute("userName", customer.getUserName());
                 model.addAttribute("mobileNumber", customer.getPhoneNumber());
                 model.addAttribute("address", customer.getCustomerAddress());
-                model.addAttribute("accountNumber",customer.getAccount().getAccountNumber());
+                model.addAttribute("accountNumber", customer.getAccount().getAccountNumber());
                 model.addAttribute("balance", customer.getAccount().getBalance());
             } else {
                 model.addAttribute("message", "invalid Password");
@@ -116,8 +117,84 @@ public class CustomerController {
         model.addAttribute("userName", existingCustomer.getUserName());
         model.addAttribute("mobileNumber", existingCustomer.getPhoneNumber());
         model.addAttribute("address", existingCustomer.getCustomerAddress());
+        model.addAttribute("accountNumber", existingCustomer.getAccount().getAccountNumber());
+        model.addAttribute("balance", existingCustomer.getAccount().getBalance());
         return "details";
     }
+
+    //Deposit
+    @GetMapping("/deposit/{accountNumber}")
+    public String depositForm(@PathVariable String accountNumber, Model model) {
+        //System.out.println("ACCOUNT NUMBER  "+accountNumber);
+        //model.addAttribute("account", accountService.getById(accountNumber));
+       model.addAttribute("accountNumber", accountNumber);
+        return "deposit";
+    }
+
+    @PostMapping("/deposit/{accountNumber}")
+    public String deposit(@PathVariable String accountNumber, HttpServletRequest request, Model model) {
+        Account account = accountService.getById(accountNumber);
+        Double amount = Double.parseDouble(request.getParameter("amount"));
+            account.deposit(amount);
+            accountService.saveAccount(account);
+            model.addAttribute("message", "Deposited successfully");
+        return "deposit";
+    }
+
+    // withdraw
+    @GetMapping("/withdraw/{accountNumber}")
+    public String withdrawForm(@PathVariable String accountNumber, Model model) {
+        model.addAttribute("accountNumber", accountNumber);
+        return "withdraw";
+    }
+
+    @PostMapping("/withdraw/{accountNumber}")
+    public String withdraw(@PathVariable String accountNumber, HttpServletRequest request, Model model) {
+        Double amount = Double.parseDouble(request.getParameter("amount"));
+            Account account = accountService.getById(accountNumber);
+            if (account.getBalance() <= amount) {
+                model.addAttribute("message", "insufficient Amount");
+            } else {
+                account.withdraw(amount);
+                accountService.saveAccount(account);
+                model.addAttribute("message", "Withdraw successfully");
+            }
+        return "withdraw";
+    }
+
+    //Fund Transfer
+    @GetMapping("/fundTransfer/{accountNumber}")
+    public String fundTransferForm(@PathVariable String accountNumber, Model model) {
+        model.addAttribute("accountNumber", accountNumber);
+        return "fundTransfer";
+    }
+
+    @PostMapping("/fundTransfer/{accountNumber}")
+    public String fundTransfer(@PathVariable String accountNumber, HttpServletRequest request, Model model) {
+
+        String toAccount = request.getParameter("toAccount");
+        Double amount = Double.parseDouble(request.getParameter("amount"));
+
+
+        if (accountService.existAccount(toAccount)) {
+            Account account1 = accountService.getById(accountNumber);
+            Account account2 = accountService.getById(toAccount);
+            if (account1.getBalance() <= amount) {
+                model.addAttribute("message", "insufficient Amount in your Account");
+            } else {
+                account1.withdraw(amount);
+                account2.deposit(amount);
+                accountService.saveAccount(account1);
+                accountService.saveAccount(account2);
+                model.addAttribute("message", "Transaction done successfully");
+            }
+        }
+        else {
+            model.addAttribute("message", "Account does not Exist! Please Enter valid Account Number");
+        }
+        return "fundTransfer";
+    }
+
 
 //    @RequestMapping("/delete")
 //    @ResponseBody

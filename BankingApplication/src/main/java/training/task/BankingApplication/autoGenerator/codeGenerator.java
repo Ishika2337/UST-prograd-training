@@ -5,7 +5,6 @@ import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentifierGenerator;
 
 import java.io.Serializable;
-import java.sql.Connection;
 import java.util.Random;
 
 public class codeGenerator implements IdentifierGenerator {
@@ -17,7 +16,6 @@ public class codeGenerator implements IdentifierGenerator {
     @Override
     public Serializable generate(SharedSessionContractImplementor sharedSessionContractImplementor, Object o) throws HibernateException {
         String prefix = "ABC";
-        //Connection connection = session.connection();
         return prefix + generateCustomId();
     }
 }

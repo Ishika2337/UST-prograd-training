@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Details</title>
-<!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"-->
-<!--          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+    <title>ABC Bank</title>
+    <!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
+    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"-->
+    <!--          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -16,11 +16,13 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/home">ABC bank</a>
+            <a class="navbar-brand" href="/">ABC bank</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/home">Home</a></li>
-            <li><a href="/fundTransfer">Fund Transfer</a></li>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a th:href="@{/fundTransfer/{id} (id=${accountNumber})}">Fund Transfer</a></li>
+            <li><a th:href="@{/withdraw/{id} (id=${accountNumber})}">Withdraw</a></li>
+            <li><a th:href="@{/deposit/{id} (id=${accountNumber})}">Deposit</a></li>
         </ul>
     </div>
 </nav>
@@ -32,7 +34,7 @@
     <div class="form">
 
         <div class="text-center">
-            <span th:text="${message}" />
+            <span th:text="${message}"/>
         </div>
 
         <h1>Details of <span th:text="${name}"/></h1>
@@ -43,13 +45,9 @@
         <p>Account Number: <span th:text="${accountNumber}"/></p>
         <p>Balance: <span th:text="${balance}"/></p>
         <div class="container">
-            <a href="/" class="btn btn-primary" >Logout</a>
-            <a th:href="@{/updateCustomer/{id} (id=${userName})}" class="btn btn-primary " >Update</a>
+            <a href="/" class="btn btn-primary">Logout</a>
+            <a th:href="@{/updateCustomer/{id} (id=${userName})}" class="btn btn-primary ">Update</a>
         </div>
-<!--        <div class="container">-->
-<!--        <button type="submit" class="btn btn-primary" >Withdraw</button>-->
-<!--        <a href="deposit" type="submit" class="btn btn-primary " >Deposit</a>-->
-<!--        </div>-->
     </div>
 </div>
 </body>

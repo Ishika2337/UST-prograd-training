@@ -25,6 +25,9 @@ public class AccountService {
         return accountRepository.findById(accountNumber).get();
     }
 
+    public Boolean existAccount(String accountNumber){
+        return accountRepository.existsById(accountNumber);
+    }
 
 //    public void checkIds(RegisteredCustomer customer, Account account){
 //        if (customer.getID().equals(account.getAccountId())){
