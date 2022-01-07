@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="/login.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -23,6 +23,7 @@
             <li><a th:href="@{/fundTransfer/{id} (id=${accountNumber})}">Fund Transfer</a></li>
             <li><a th:href="@{/withdraw/{id} (id=${accountNumber})}">Withdraw</a></li>
             <li><a th:href="@{/deposit/{id} (id=${accountNumber})}">Deposit</a></li>
+            <li><a th:href="@{/balance/{id} (id=${accountNumber})}">checkBalance</a></li>
         </ul>
     </div>
 </nav>
@@ -37,7 +38,7 @@
             <span th:text="${message}"/>
         </div>
 
-        <h1>Details of <span th:text="${name}"/></h1>
+        <h3 class="mb-2">Details of <span th:text="${name}"/></h3>
         <p>User Name: <span th:text="${userName}"/></p>
         <p>Name: <span th:text="${name}"/></p>
         <p>Mobile Number: <span th:text="${mobileNumber}"/></p>

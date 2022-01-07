@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="/login.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -16,10 +16,11 @@
             <a class="navbar-brand" href="/">ABC bank</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a th:href="@{/fundTransfer/{id} (id=${accountNumber})}">Fund Transfer</a></li>
             <li class="active"><a href="#">Withdraw</a></li>
             <li><a th:href="@{/deposit/{id} (id=${accountNumber})}">Deposit</a></li>
+            <li><a th:href="@{/balance/{id} (id=${accountNumber})}">checkBalance</a></li>
         </ul>
     </div>
 </nav>

@@ -69,12 +69,10 @@ public class CustomerController {
     public String login(HttpServletRequest request, Model model) {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
-        //String accountNumber = request.getParameter("accountNumber");
+
         RegisteredCustomer customer;
-        //Account account;
         if (customerService.existsById(userName)) {
             customer = customerService.findById(userName);
-            // account = accountService.getById(accountNumber);
             if (password.equals(customer.getPassword())) {
                 model.addAttribute("message", "Login Successfully");
                 model.addAttribute("name", customer.getCustomerName());
@@ -120,6 +118,14 @@ public class CustomerController {
         model.addAttribute("accountNumber", existingCustomer.getAccount().getAccountNumber());
         model.addAttribute("balance", existingCustomer.getAccount().getBalance());
         return "details";
+    }
+
+    @GetMapping("/balance/{accountNumber}")
+    public String details(@PathVariable String accountNumber, Model model) {
+        model.addAttribute("userName",accountNumber);
+        Account account = accountService.getById(accountNumber);
+        model.addAttribute("balance", account.getBalance() );
+        return "balance";
     }
 
     //Deposit

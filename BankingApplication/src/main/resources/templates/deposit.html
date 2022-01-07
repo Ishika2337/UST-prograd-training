@@ -16,13 +16,13 @@
             <a class="navbar-brand" href="/">ABC bank</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a th:href="@{/fundTransfer/{id} (id=${accountNumber})}">Fund Transfer</a></li>
             <li><a th:href="@{/withdraw/{id} (id=${accountNumber})}">Withdraw</a></li>
             <li class="active"><a href="#">Deposit</a></li>
 <!--            <li><a href="/details">Details</a></li>-->
 
-<!--            <li><a th:href="@{/details/{id} (id=${userName})}">Details</a></li>-->
+            <li><a th:href="@{/balance/{id} (id=${accountNumber})}">checkBalance</a></li>
         </ul>
     </div>
 </nav>
