@@ -16,8 +16,7 @@ import java.util.logging.SimpleFormatter;
 public class App {
     public static void main(String[] args) throws IOException {
         Logger logger = Logger.getLogger("MyLog");
-        FileHandler fh;
-        fh = new FileHandler("log.txt");
+        FileHandler fh = new FileHandler("log.txt");
         logger.addHandler(fh);
         SimpleFormatter formatter = new SimpleFormatter();
         fh.setFormatter(formatter);
@@ -218,7 +217,7 @@ public class App {
                 l = 1;
             }
 
-        } while (l != 0);
+        } while (l == 0);
         logger.info("Program Stopped..");
 
     }

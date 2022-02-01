@@ -26,8 +26,7 @@ public class Calculator {
             int div = number1/number2;
             System.out.println("Division  " + div);
         }catch (ArithmeticException ae){
-            System.out.println("Divide by zero Exceptionno ma'am" +
-                    "");
+            System.out.println("Divide by zero Exception");
         }
     }
     public int mul(){
